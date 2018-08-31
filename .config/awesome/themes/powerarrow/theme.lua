@@ -14,23 +14,45 @@ local os, math, string = os, math, string
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
+
+local sol = {
+    base03  = "#002b36",
+    base02  = "#073642",
+    base01  = "#586e75",
+    base00  = "#657b83",
+    base0   = "#839496",
+    base1   = "#93a1a1",
+    base2   = "#eee8d5",
+    base3   = "#fdf6e3",
+
+    yellow  = "#b58900",
+    orange  = "#cb4b16",
+    red     = "#dc322f", 
+    magenta = "#d33682",
+    violet  = "#6c71c4",
+    blue    = "#268bd2",
+    cyan    = "#2aa198",
+    green   = "#859900",
+}
+
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow"
-theme.wallpaper                                 = os.getenv("HOME") .. "/Pictures/Wallpapers/wallhaven-371044_3840x2400.png"
+-- theme.wallpaper                                 = os.getenv("HOME") .. "/Pictures/Wallpapers/wallhaven-371044_3840x2400.png"
+theme.wallpaper                                 = gears.wallpaper.set(sol.base02)
 theme.font                                      = "Terminus Regular 9"
 -- theme.font                                      = "Input 11"
-theme.fg_normal                                 = "#FEFEFE"
+theme.fg_normal                                 = sol.base3
 theme.fg_focus                                  = "#32D6FF"
 theme.fg_urgent                                 = "#d33682"
 -- theme.bg_normal                                 = "#00000000"
 -- theme.bg_focus                                  = "#00000066"
 -- theme.bg_urgent                                 = "#00000099"
-theme.bg_normal                                 = "#002b36"
+theme.bg_normal                                 = sol.base03
 theme.bg_focus                                  = "#002b36"
 theme.bg_urgent                                 = "#002b36"
-theme.taglist_fg_focus                          = "#d33682"
+theme.taglist_fg_focus                          = "#dc322f"
 theme.tasklist_bg_focus                         = theme.bg_normal
 theme.tasklist_fg_focus                         = theme.bg_normal
-theme.border_width                              = 1
+theme.border_width                              = 0
 theme.border_normal                             = "#000000"
 theme.border_focus                              = "#666666"
 theme.border_marked                             = "#CC9393"
@@ -361,27 +383,27 @@ function theme.at_screen_connect(s)
             pl(binclock.widget, "#777E76"),
             --]]
             -- using separators
-            arrow(theme.bg_normal, "#343434"),
-            wibox.container.background(wibox.container.margin(wibox.widget { mailicon, mail and mail.widget, layout = wibox.layout.align.horizontal }, 4, 7), "#343434"),
-            arrow("#343434", theme.bg_normal),
+            arrow(theme.bg_normal, sol.base02),
+            wibox.container.background(wibox.container.margin(wibox.widget { mailicon, mail and mail.widget, layout = wibox.layout.align.horizontal }, 4, 7), sol.base02),
+            arrow(sol.base02, theme.bg_normal),
             wibox.container.background(wibox.container.margin(wibox.widget { mpdicon, theme.mpd.widget, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
-            arrow(theme.bg_normal, "#343434"),
-            wibox.container.background(wibox.container.margin(task, 3, 7), "#343434"),
-            arrow("#343434", "#777E76"),
-            wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, 2, 3), "#777E76"),
-            arrow("#777E76", "#4B696D"),
-            wibox.container.background(wibox.container.margin(wibox.widget { cpuicon, cpu.widget, layout = wibox.layout.align.horizontal }, 3, 4), "#4B696D"),
-            arrow("#4B696D", "#4B3B51"),
-            wibox.container.background(wibox.container.margin(wibox.widget { tempicon, temp.widget, layout = wibox.layout.align.horizontal }, 4, 4), "#4B3B51"),
-            arrow("#4B3B51", "#CB755B"),
-            wibox.container.background(wibox.container.margin(wibox.widget { fsicon, theme.fs.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#CB755B"),
-            arrow("#CB755B", "#8DAA9A"),
-            wibox.container.background(wibox.container.margin(wibox.widget { baticon, bat.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#8DAA9A"),
-            arrow("#8DAA9A", "#C0C0A2"),
-            wibox.container.background(wibox.container.margin(wibox.widget { nil, neticon, net.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#C0C0A2"),
-            arrow("#C0C0A2", "#777E76"),
-            wibox.container.background(wibox.container.margin(binclock.widget, 4, 8), "#777E76"),
-            arrow("#777E76", theme.bg_normal),
+            arrow(theme.bg_normal, sol.base02),
+            wibox.container.background(wibox.container.margin(task, 3, 7), sol.base02),
+            arrow(sol.base02, sol.yellow),
+            wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, 2, 3), sol.yellow),
+            arrow(sol.yellow, sol.orange),
+            wibox.container.background(wibox.container.margin(wibox.widget { cpuicon, cpu.widget, layout = wibox.layout.align.horizontal }, 3, 4), sol.orange),
+            arrow(sol.orange, sol.red),
+            wibox.container.background(wibox.container.margin(wibox.widget { tempicon, temp.widget, layout = wibox.layout.align.horizontal }, 4, 4), sol.red),
+            arrow(sol.red, sol.magenta),
+            wibox.container.background(wibox.container.margin(wibox.widget { fsicon, theme.fs.widget, layout = wibox.layout.align.horizontal }, 3, 3), sol.magenta),
+            arrow(sol.magenta, sol.violet),
+            wibox.container.background(wibox.container.margin(wibox.widget { baticon, bat.widget, layout = wibox.layout.align.horizontal }, 3, 3), sol.violet),
+            arrow(sol.violet, sol.blue),
+            wibox.container.background(wibox.container.margin(wibox.widget { nil, neticon, net.widget, layout = wibox.layout.align.horizontal }, 3, 3), sol.blue),
+            arrow(sol.blue, sol.base02),
+            wibox.container.background(wibox.container.margin(binclock.widget, 4, 8), sol.base02),
+            arrow(sol.base02, theme.bg_normal),
             --]]
             s.mylayoutbox,
         },
