@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/etc/systemd/system'
+let g:netrw_dirhist_2='/etc/systemd/system/multi-user.target.wants'
+let g:netrw_dirhist_3='/home/nb-karpochev/stuff/work/proj/incidents-bot/src/tasks'
+let g:netrw_dirhist_4='/home/nb-karpochev/stuff/work/proj/sre-schedule/.git'
+let g:netrw_dirhist_5='/home/nb-karpochev/stuff/proj/de3.me/db/mysql/mysql'
+let g:netrw_dirhist_6='/home/nb-karpochev/stuff/work/proj/sre-schedule/.git'
+let g:netrw_dirhist_7='/home/nb-karpochev/.vim/bundle/lightline.vim/autoload/lightline'

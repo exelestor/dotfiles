@@ -1,0 +1,29 @@
+search png
+cd  /var/log
+shel
+search bg
+search des
+search de
+search sol
+search w
+search wo
+l
+open_with j
+cd
+search rang
+shell 
+delete
+search grub
+search cpuinf
+open_with vim
+open_with cat
+open_with less
+search hd
+search hd0
+search sd
+
+search .config
+search awe
+cd ~/.config/ranger
+less
+open_with 

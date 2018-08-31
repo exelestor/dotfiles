@@ -1,0 +1,1 @@
+/home/nb-karpochev/.vimrc
