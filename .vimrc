@@ -1,9 +1,15 @@
 execute pathogen#infect()
 syntax on
 
+set t_Co=256
+
 set number
 set relativenumber
-set scrolloff=5
+set numberwidth=5
+
+set scrolloff=10
+set sidescrolloff=15
+set sidescroll=1
 
 set laststatus=2
 set tabstop=4       " The width of a TAB is set to 4.
@@ -12,7 +18,6 @@ set tabstop=4       " The width of a TAB is set to 4.
                     " a width of 4.
 
 set shiftwidth=4    " Indents will have a width of 4
-
 set softtabstop=4   " Sets the number of columns for a TAB
 
 set expandtab       " Expand TABs to spaces
@@ -21,6 +26,21 @@ set fdm=syntax
 
 set wrap
 set linebreak
+
+set noswapfile
+set cursorline
+
+set list listchars=tab:»·,trail:·,nbsp:·
+set list listchars=tab:»-,trail:·,nbsp:·
+
+" line number background color
+highlight CursorLineNr  ctermbg=0   ctermfg=12
+highlight LineNr        ctermbg=0   ctermfg=8
+
+highlight CursorLine    ctermbg=0   cterm=NONE
+highlight GroupB        ctermfg=8
+match GroupB / /
+2match GroupB /\t/
 
 set background=dark
 
