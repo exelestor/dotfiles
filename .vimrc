@@ -30,17 +30,25 @@ set linebreak
 set noswapfile
 set cursorline
 
+set nofoldenable
+
 set list listchars=tab:»·,trail:·,nbsp:·
 set list listchars=tab:»-,trail:·,nbsp:·
+
+" hi Visual  guifg=#000000 guibg=#FFFFFF gui=none
+hi Visual               ctermbg=5   ctermfg=7
 
 " line number background color
 highlight CursorLineNr  ctermbg=0   ctermfg=12
 highlight LineNr        ctermbg=0   ctermfg=8
 
+"highlight CursorLine    ctermbg=7   cterm=NONE
 highlight CursorLine    ctermbg=0   cterm=NONE
-highlight GroupB        ctermfg=8
+highlight GroupB        ctermfg=0
 match GroupB / /
 2match GroupB /\t/
+
+hi MatchParen cterm=bold ctermbg=none ctermfg=red
 
 set background=dark
 
@@ -61,3 +69,19 @@ endfunction
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
+
+" enable line numbers
+let NERDTreeShowLineNumbers=1
+" make sure relative line numbers are used
+autocmd FileType nerdtree setlocal relativenumber
+
+let g:NERDTreeWinSize=35
+
+
+
+"let g:gitgutter_terminal_reports_focus=0
+set updatetime=50
+nnoremap <Leader>f :NERDTreeToggle<Enter>
+inoremap II <Esc>I
+inoremap AA <Esc>A
+inoremap OO <Esc>O

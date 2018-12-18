@@ -1,10 +1,12 @@
 # zsh
+alias vim="nvim"
 alias updrc="source ~/.zshrc"
 
-alias vpn='sudo nohup openvpn ~/Downloads/mobbtech_viktor.karpochev_vpn1.ovpn &'
 alias goland='nohup ~/Downloads/GoLand-2018.1.4/bin/goland.sh &'
 
 alias .cd='cd ..'
 alias ..cd='cd ../..'
 alias ...cd='cd ../../..'
 alias ....cd='cd ../../../..'
+
+alias cdg="cd "$GOPATH

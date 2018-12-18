@@ -1,8 +1,3 @@
-search png
-cd  /var/log
-shel
-search bg
-search des
 search de
 search sol
 search w
@@ -11,19 +6,45 @@ l
 open_with j
 cd
 search rang
-shell 
-delete
 search grub
 search cpuinf
-open_with vim
 open_with cat
 open_with less
 search hd
 search hd0
 search sd
-
-search .config
-search awe
 cd ~/.config/ranger
 less
+cd  
+search 
+mkdir incidents-creator
+shell rm 2018-09-0*
+shell 
+search json
+search gra
+search gray
+search comm
+search nslc
+shellq
+set vcs_aware true
+set vcs_aware truej
+open_with vim
+open_with l
+open_with ./
+search linux
+search conf
+search config
+open_console 
+cd  /
+cd  ~
+cd 
+search zsh
+search cli
+
+search ranger
+mv
 open_with 
+search stand
+search .config
+search awe
+delete

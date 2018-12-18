@@ -8,11 +8,11 @@
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-#ZSH_THEME="agnoster"
+ZSH_THEME="agnoster"
 # THIS THEME IS AWESOME
 #ZSH_THEME="mortalscumbag"
 #ZSH_THEME="fishy"
-ZSH_THEME="gentoo"
+#ZSH_THEME="gentoo"
 
 #ZSH_THEME="bureau"
 #ZSH_THEME="ys"

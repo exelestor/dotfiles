@@ -37,9 +37,10 @@ local sol = {
 
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow"
 -- theme.wallpaper                                 = os.getenv("HOME") .. "/Pictures/Wallpapers/wallhaven-371044_3840x2400.png"
-theme.wallpaper                                 = gears.wallpaper.set(sol.base02)
+theme.wallpaper                                 = os.getenv("HOME") .. "/Pictures/Wallpapers/wallhaven-632018.jpg"
+-- theme.wallpaper                                 = gears.wallpaper.set(sol.base02)
 theme.font                                      = "Terminus Regular 9"
--- theme.font                                      = "Input 11"
+
 theme.fg_normal                                 = sol.base3
 theme.fg_focus                                  = "#32D6FF"
 theme.fg_urgent                                 = "#d33682"
@@ -49,20 +50,31 @@ theme.fg_urgent                                 = "#d33682"
 theme.bg_normal                                 = sol.base03
 theme.bg_focus                                  = "#002b36"
 theme.bg_urgent                                 = "#002b36"
-theme.taglist_fg_focus                          = "#dc322f"
+
+theme.taglist_bg_occupied                       = sol.base02
+theme.taglist_bg_focus                          = theme.taglist_bg_occupied
+theme.taglist_bg_empty                          = theme.taglist_bg_occupied
+theme.taglist_fg_focus                          = sol.red
+-- theme.taglist_fg_occupied                       = sol.base03
+-- theme.taglist_fg_empty                          = sol.base03
+
 theme.tasklist_bg_focus                         = theme.bg_normal
 theme.tasklist_fg_focus                         = theme.bg_normal
+
 theme.border_width                              = 0
 theme.border_normal                             = "#000000"
 theme.border_focus                              = "#666666"
 theme.border_marked                             = "#CC9393"
+
 theme.titlebar_bg_focus                         = theme.bg_normal
 theme.titlebar_bg_normal                        = theme.bg_normal
---theme.titlebar_bg_focus                         = theme.bg_focus
+-- theme.titlebar_bg_focus                         = theme.bg_focus
 -- theme.titlebar_bg_normal                        = theme.bg_normal
 theme.titlebar_fg_focus                         = "#FFFFFF"
+
 -- theme.bg_systray                                = "alpha"
 theme.bg_systray                                = theme.bg_normal
+
 theme.menu_height                               = 16
 theme.menu_width                                = 140
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
@@ -138,7 +150,8 @@ local binclock = require("themes.powerarrow.binclock"){
 -- Calendar
 theme.cal = lain.widget.calendar({
     --cal = "cal --color=always",
-    attach_to = { binclock.widget },
+    -- TODO: Attach Calendar to plain clock
+    attach_to = { wibox.widget.textclock() },
     notification_preset = {
         font = theme.font,
         fg   = theme.fg_normal,
@@ -298,6 +311,7 @@ local net = lain.widget.net({
 
 -- Separators
 local arrow = separators.arrow_left
+local arrowr = separators.arrow_right
 
 function theme.powerline_rl(cr, width, height)
     local arrow_depth, offset = height/2, 0
@@ -362,6 +376,7 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
             --spr,
             s.mytaglist,
+            arrowr(theme.taglist_bg_occupied, theme.bg_normal),
             s.mypromptbox,
             spr,
         },
@@ -399,10 +414,12 @@ function theme.at_screen_connect(s)
             wibox.container.background(wibox.container.margin(wibox.widget { fsicon, theme.fs.widget, layout = wibox.layout.align.horizontal }, 3, 3), sol.magenta),
             arrow(sol.magenta, sol.violet),
             wibox.container.background(wibox.container.margin(wibox.widget { baticon, bat.widget, layout = wibox.layout.align.horizontal }, 3, 3), sol.violet),
-            arrow(sol.violet, sol.blue),
-            wibox.container.background(wibox.container.margin(wibox.widget { nil, neticon, net.widget, layout = wibox.layout.align.horizontal }, 3, 3), sol.blue),
-            arrow(sol.blue, sol.base02),
-            wibox.container.background(wibox.container.margin(binclock.widget, 4, 8), sol.base02),
+            --arrow(sol.violet, sol.blue),
+            arrow(sol.violet, sol.base02),
+            --wibox.container.background(wibox.container.margin(wibox.widget { nil, neticon, net.widget, layout = wibox.layout.align.horizontal }, 3, 3), sol.blue),
+            --arrow(sol.blue, sol.base02),
+            --wibox.container.background(wibox.container.margin(binclock.widget, 4, 8), sol.base02),
+            wibox.container.background(wibox.container.margin(wibox.widget.textclock(), 4, 8), sol.base02),
             arrow(sol.base02, theme.bg_normal),
             --]]
             s.mylayoutbox,
